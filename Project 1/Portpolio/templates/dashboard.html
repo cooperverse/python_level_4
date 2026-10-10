@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="container-fluid">
+
+    <div class="row">
+
+        <!-- Sidebar -->
+        <div class="col-md-3 col-lg-2 bg-light min-vh-100 p-4">
+
+            <h4 class="mb-4">Dashboard</h4>
+
+            <div class="nav flex-column">
+
+                <a href="{% url 'profile' %}" class="nav-link">
+                    Profile
+                </a>
+
+                <a href="{% url 'skills' %}" class="nav-link">
+                    Skills
+                </a>
+
+                <a href="{% url 'education' %}" class="nav-link">
+                    Education
+                </a>
+
+                <a href="{% url 'experience' %}" class="nav-link">
+                    Experience
+                </a>
+
+                <a href="{% url 'projects' %}" class="nav-link">
+                    Projects
+                </a>
+
+                <a href="{% url 'portfolio' %}" class="nav-link">
+                    View Portfolio
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <!-- Dashboard content -->
+        <div class="col-md-9 col-lg-10 p-4">
+
+            {% block dashboard_content %}
+            {% endblock dashboard_content %}
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock content %}

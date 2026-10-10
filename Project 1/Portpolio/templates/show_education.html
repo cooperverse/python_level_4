@@ -1,0 +1,86 @@
+{% extends "dashboard.html" %}
+
+{% block title %}
+    Education
+{% endblock title %}
+
+{% block dashboard_content %}
+
+<div class="d-flex justify-content-between align-items-center mb-4">
+
+    <div>
+        <h1>Education</h1>
+        <p class="text-muted">
+            Manage your education
+        </p>
+    </div>
+
+    <a
+        href="{% url 'add_education' %}"
+        class="btn btn-success"
+    >
+        + Add Education
+    </a>
+
+</div>
+
+
+<div class="row g-4">
+
+    {% for education in educations %}
+
+    <div class="col-md-6">
+
+        <div class="card shadow-sm">
+
+            <div class="card-body">
+
+                <h4>
+                    {{ education.degree }}
+                </h4>
+
+                <h6 class="text-muted">
+                    {{ education.institution }}
+                </h6>
+
+                <p>
+                    {{ education.field_of_study }}
+                </p>
+
+                <p>
+                    {{ education.start_date }}
+                    -
+                    {{ education.end_date|default:"Present" }}
+                </p>
+
+                <a
+                    href="{% url 'edit_education' education.id %}"
+                    class="btn btn-outline-primary btn-sm"
+                >
+                    Edit
+                </a>
+
+                <a
+                    href="{% url 'delete_education' education.id %}"
+                    class="btn btn-outline-danger btn-sm"
+                >
+                    Delete
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    {% empty %}
+
+    <div class="alert alert-secondary">
+        No education added yet.
+    </div>
+
+    {% endfor %}
+
+</div>
+
+{% endblock dashboard_content %}

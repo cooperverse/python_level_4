@@ -1,0 +1,93 @@
+{% extends "dashboard.html" %}
+
+{% block title %}
+    Edit Project
+{% endblock title %}
+
+{% block dashboard_content %}
+
+<div class="row justify-content-center">
+
+    <div class="col-lg-8">
+
+        <div class="card shadow-sm">
+
+            <div class="card-body p-4">
+
+                <h1 class="mb-4">
+                    Edit Project
+                </h1>
+
+                <form method="POST">
+
+                    {% csrf_token %}
+
+                    <div class="mb-3">
+
+                        <label class="form-label">
+                            Project Title
+                        </label>
+
+                        {{ form.title }}
+
+                    </div>
+
+
+                    <div class="mb-3">
+
+                        <label class="form-label">
+                            Description
+                        </label>
+
+                        {{ form.description }}
+
+                    </div>
+
+
+                    <div class="mb-3">
+
+                        <label class="form-label">
+                            GitHub URL
+                        </label>
+
+                        {{ form.github_url }}
+
+                    </div>
+
+
+                    <div class="mb-4">
+
+                        <label class="form-label">
+                            Live Link
+                        </label>
+
+                        {{ form.live_link }}
+
+                    </div>
+
+
+                    <button
+                        type="submit"
+                        class="btn btn-success"
+                    >
+                        Save Changes
+                    </button>
+
+                    <a
+                        href="{% url 'projects' %}"
+                        class="btn btn-secondary"
+                    >
+                        Cancel
+                    </a>
+
+                </form>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock dashboard_content %}

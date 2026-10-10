@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Student Form{% endblock title %}
+
+{% block content %}
+<form method="post" style="width:50%; margin:auto;" class="my-4">
+    {% csrf_token %}
+    <h3 class="text-center">Registration Form</h3>
+    
+    <div class="mb-3">
+        <label for="name" class="form-label">Name</label>
+        <input type="text" class="form-control" id="name" name="name" required>
+    </div>
+    
+    <div class="mb-3">
+        <label for="dept" class="form-label">Department</label>
+        <input type="text" class="form-control" id="dept" name="dept" required>
+    </div>
+    
+    <div class="mb-3">
+        <label for="roll" class="form-label">Roll</label>
+        <input type="number" class="form-control" id="roll" name="roll" required>
+    </div>
+    
+    <div class="mb-3">
+        <label for="semester" class="form-label">Semester</label>
+        <input type="number" class="form-control" id="semester" name="semester" required>
+    </div>
+    
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+{% endblock content %}

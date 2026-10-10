@@ -1,0 +1,88 @@
+{% extends "dashboard.html" %}
+
+
+{% block title %}
+    Add Skill
+{% endblock title %}
+
+
+{% block dashboard_content %}
+
+<div class="row justify-content-center">
+
+    <div class="col-lg-8">
+
+        <div class="card shadow-sm">
+
+            <div class="card-body p-4">
+
+                <h1 class="mb-4">
+                    Add to Skills
+                </h1>
+
+                <form method="POST">
+
+                    {% csrf_token %}
+
+                    <div class="mb-3">
+
+                        <label class="form-label">
+                            Name
+                        </label>
+
+                        {{ form.name }}
+
+                    </div>
+
+
+                    <div class="mb-3">
+
+                        <label class="form-label">
+                            Category
+                        </label>
+
+                        {{ form.category }}
+
+                        <div class="form-text">
+                            e.g. Backend, DevOps
+                        </div>
+
+                    </div>
+
+
+                    <div class="mb-4">
+
+                        <label class="form-label">
+                            Level
+                        </label>
+
+                        {{ form.level }}
+
+                    </div>
+
+
+                    <button
+                        type="submit"
+                        class="btn btn-success"
+                    >
+                        Save changes
+                    </button>
+
+                    <a
+                        href="{% url 'skills' %}"
+                        class="btn btn-secondary"
+                    >
+                        Cancel
+                    </a>
+
+                </form>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock dashboard_content %}

@@ -1,0 +1,97 @@
+{% extends "dashboard.html" %}
+
+{% block title %}
+    Edit Experience
+{% endblock title %}
+
+{% block dashboard_content %}
+
+<div class="row justify-content-center">
+
+    <div class="col-lg-8">
+
+        <div class="card shadow-sm">
+
+            <div class="card-body p-4">
+
+                <h1 class="mb-4">
+                    Edit Experience
+                </h1>
+
+                <form method="POST">
+
+                    {% csrf_token %}
+
+                    <div class="mb-3">
+
+                        <label class="form-label">
+                            Company
+                        </label>
+
+                        {{ form.company }}
+
+                    </div>
+
+
+                    <div class="mb-3">
+
+                        <label class="form-label">
+                            Position
+                        </label>
+
+                        {{ form.position }}
+
+                    </div>
+
+
+                    <div class="row">
+
+                        <div class="col-md-6 mb-3">
+
+                            <label class="form-label">
+                                Start Date
+                            </label>
+
+                            {{ form.start_date }}
+
+                        </div>
+
+
+                        <div class="col-md-6 mb-3">
+
+                            <label class="form-label">
+                                End Date
+                            </label>
+
+                            {{ form.end_date }}
+
+                        </div>
+
+                    </div>
+
+
+                    <button
+                        type="submit"
+                        class="btn btn-success"
+                    >
+                        Save Changes
+                    </button>
+
+                    <a
+                        href="{% url 'experience' %}"
+                        class="btn btn-secondary"
+                    >
+                        Cancel
+                    </a>
+
+                </form>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock dashboard_content %}
